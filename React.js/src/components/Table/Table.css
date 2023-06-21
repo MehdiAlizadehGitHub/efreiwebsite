@@ -1,0 +1,14 @@
+select .btn {
+    background:rgb(48, 48, 255) ;
+}
+
+@media only screen and (max-width: 768px) {
+    .responsive {
+        display: inline-block;
+    }
+  }
+
+.result span{
+    
+  text-shadow: 0 0 3px #c9d821, 0 0 5px #09b83e;
+}

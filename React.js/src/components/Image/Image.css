@@ -1,0 +1,20 @@
+img {
+    min-height: 15em;
+    height: 20em;
+    padding: 0%;
+    border-style: dashed;
+    border-radius: 20%;
+    border-color: rgb(0, 23, 52);
+    transition:  700ms;
+}
+
+
+
+  
+img:hover {
+    transition-duration: 500ms;
+    height: 22em;
+    border-color: rgb(106, 142, 187);
+    border-style: solid;
+
+}
