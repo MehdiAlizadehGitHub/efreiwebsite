@@ -402,5 +402,5 @@ app.delete("/School/deleteAll", async (req, res) => {
     })
 })
 
-app.listen(3020)
+app.listen(3000)
 

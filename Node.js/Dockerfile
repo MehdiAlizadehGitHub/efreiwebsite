@@ -2,9 +2,7 @@
 # Use the official Node.js image as the base image
 FROM node:18
 
-ENV PORT 3000
-EXPOSE 3000
-  
+
 # Set the working directory in the container
 WORKDIR /Node.js
 
