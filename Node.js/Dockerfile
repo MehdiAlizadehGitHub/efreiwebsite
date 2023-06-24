@@ -2,13 +2,16 @@
 FROM node:18
 
 # Set the working directory in the container
-WORKDIR /Node.js
+WORKDIR /app
+COPY package.json
+
+# Install the application dependencies
+RUN npm install
 
 # Copy the application files into the working directory
 COPY ./Node.js/app
 
-# Install the application dependencies
-RUN npm install
+
 
 # Define the entry point for the container
 CMD ["npm", "start"]
