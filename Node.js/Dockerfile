@@ -1,3 +1,4 @@
+bashCopy code
 
 # Use the official Node.js image as the base image
 FROM node:18
@@ -7,7 +8,7 @@ FROM node:18
 WORKDIR /Node.js
 
 # Copy the application files into the working directory
-COPY ./Node.js
+COPY ./app
 
 # Install the application dependencies
 RUN npm install
