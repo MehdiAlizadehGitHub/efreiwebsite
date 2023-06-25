@@ -17,7 +17,7 @@ function Teacher() {
     const [editClass, setEditClass] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:3020/School/Teacher/read')
+        axios.get(`${process.env.REACT_APP_API_KEY}School/Teacher/read`)
             .then(response => {
                 setListe(response.data);
             })
@@ -30,7 +30,7 @@ function Teacher() {
 
     useEffect(() => {
         const delay = setTimeout(() => {
-            axios.get('http://127.0.0.1:3020/School/Subject/read')
+            axios.get(`${process.env.REACT_APP_API_KEY}School/Subject/read`)
                 .then(response2 => {
                     setSubjectListe(response2.data);
                 })
@@ -65,7 +65,7 @@ function Teacher() {
             "age": event.target.age.value,
         };
         // send the new item to the server using axios
-        axios.post('http://127.0.0.1:3020/School/Teacher/insert', newItem)
+        axios.post(`${process.env.REACT_APP_API_KEY}School/Teacher/insert`, newItem)
             .then(response => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -87,7 +87,7 @@ function Teacher() {
 
     const handleDelete = (id) => {
         console.log(id)
-        axios.delete(`http://127.0.0.1:3020/School/Teacher/delete?_id=${id}`)
+        axios.delete(`${process.env.REACT_APP_API_KEY}School/Teacher/delete?_id=${id}`)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -115,7 +115,7 @@ function Teacher() {
         };
 
         console.log(editClass);
-        axios.put(`http://127.0.0.1:3020/School/Teacher/update/${editClass}`, editedItem)
+        axios.put(`${process.env.REACT_APP_API_KEY}School/Teacher/update/${editClass}`, editedItem)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);

@@ -17,7 +17,7 @@ function Grade() {
     const [editIndex, setEditIndex] = useState(null);
     const [editClass, setEditClass] = useState(null);
     useEffect(() => {
-        axios.get('http://127.0.0.1:3020/School/Grades/read')
+        axios.get(`${process.env.REACT_APP_API_KEY}School/Grades/read`)
             .then(response => {
                 setListe(response.data);
             })
@@ -28,7 +28,7 @@ function Grade() {
 
     useEffect(() => {
         const delay = setTimeout(() => {
-            axios.get('http://127.0.0.1:3020/School/Students/read')
+            axios.get(`${process.env.REACT_APP_API_KEY}School/Students/read`)
                 .then(response1 => {
                     setStudentList(response1.data);
                 })
@@ -42,7 +42,7 @@ function Grade() {
 
     useEffect(() => {
         const delay2 = setTimeout(() => {
-            axios.get('http://127.0.0.1:3020/School/Subject/read')
+            axios.get(`${process.env.REACT_APP_API_KEY}School/Subject/read`)
                 .then(response2 => {
                     setSubjectListe(response2.data);
                 })
@@ -76,7 +76,7 @@ function Grade() {
         };
         console.log(event.target)
         // send the new item to the server using axios
-        axios.post('http://127.0.0.1:3020/School/Grades/insert', newItem)
+        axios.post(`${process.env.REACT_APP_API_KEY}School/Grades/insert`, newItem)
             .then(response => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -98,7 +98,7 @@ function Grade() {
 
     const handleDelete = (idStud) => {
         console.log(idStud)
-        axios.delete(`http://127.0.0.1:3020/School/Grades/delete?idStud=${idStud}`)
+        axios.delete(`${process.env.REACT_APP_API_KEY}School/Grades/delete?idStud=${idStud}`)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -125,7 +125,7 @@ function Grade() {
         };
 
         console.log(editClass);
-        axios.put(`http://127.0.0.1:3020/School/Grades/update/${editClass}`, editedItem)
+        axios.put(`${process.env.REACT_APP_API_KEY}School/Grades/update/${editClass}`, editedItem)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);

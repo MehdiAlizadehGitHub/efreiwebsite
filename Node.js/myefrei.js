@@ -11,7 +11,6 @@ const uri = "mongodb+srv://"+process.env.DB_USER+"@cluster0.oopvkfg.mongodb.net/
 const client = new MongoClient(uri);
 
 app.use(cors({ origin: "*" }))
-
 app.use(express.json())
 
 async function run(callback = false) {
@@ -402,5 +401,5 @@ app.delete("/School/deleteAll", async (req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(3020)
 

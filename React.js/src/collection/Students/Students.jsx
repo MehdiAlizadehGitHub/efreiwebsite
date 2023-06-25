@@ -17,7 +17,7 @@ function Students() {
     const [editClass, setEditClass] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:3020/School/Students/read')
+        axios.get(`${process.env.REACT_APP_API_KEY}School/Students/read`)
             .then(response => {
                 setListe(response.data);
             })
@@ -29,7 +29,7 @@ function Students() {
 
     useEffect(() => {
         const delay = setTimeout(() => {
-            axios.get('http://127.0.0.1:3020/School/Class/read')
+            axios.get(`${process.env.REACT_APP_API_KEY}School/Class/read`)
                 .then(response2 => {
                     setClassList(response2.data);
                 })
@@ -66,7 +66,7 @@ function Students() {
             "age": event.target.age.value,
         };
         // send the new item to the server using axios
-        axios.post('http://127.0.0.1:3020/School/Students/insert', newItem)
+        axios.post(`${process.env.REACT_APP_API_KEY}School/Students/insert`, newItem)
             .then(response => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -88,7 +88,7 @@ function Students() {
 
     const handleDelete = (id) => {
         console.log(id)
-        axios.delete(`http://127.0.0.1:3020/School/Students/delete?_id=${id}`)
+        axios.delete(`${process.env.REACT_APP_API_KEY}School/Students/delete?_id=${id}`)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -119,7 +119,7 @@ function Students() {
 
 
         console.log(editClass);
-        axios.put(`http://127.0.0.1:3020/School/Students/update/${editClass}`, editedItem)
+        axios.put(`${process.env.REACT_APP_API_KEY}School/Students/update/${editClass}`, editedItem)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);

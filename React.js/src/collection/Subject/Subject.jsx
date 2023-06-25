@@ -15,7 +15,7 @@ function Subject() {
     const [editIndex, setEditIndex] = useState(null);
     const [editClass, setEditClass] = useState(null);
     useEffect(() => {
-        axios.get('http://127.0.0.1:3020/School/Subject/read')
+        axios.get(`${process.env.REACT_APP_API_KEY}School/Subject/read`)
             .then(response => {
                 setListe(response.data);
             })
@@ -49,7 +49,7 @@ function Subject() {
             "teacherNumber": event.target.teacherNumber.value,
         };
         // send the new item to the server using axios
-        axios.post('http://127.0.0.1:3020/School/Subject/insert', newItem)
+        axios.post(`${process.env.REACT_APP_API_KEY}School/Subject/insert`, newItem)
             .then(response => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -71,7 +71,7 @@ function Subject() {
 
     const handleDelete = (id) => {
         console.log(id)
-        axios.delete(`http://127.0.0.1:3020/School/Subject/delete?_id=${id}`)
+        axios.delete(`${process.env.REACT_APP_API_KEY}School/Subject/delete?_id=${id}`)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);
@@ -100,7 +100,7 @@ function Subject() {
         };
 
         console.log(editClass);
-        axios.put(`http://127.0.0.1:3020/School/Subject/update/${editClass}`, editedItem)
+        axios.put(`${process.env.REACT_APP_API_KEY}School/Subject/update/${editClass}`, editedItem)
             .then((response) => {
                 if (isUpdate) {
                     setIsUpdate(false);
