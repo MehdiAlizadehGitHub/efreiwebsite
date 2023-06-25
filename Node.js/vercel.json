@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "./myefrei.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "./myefrei.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/myefrei.js"
+      }
+    ]
+  }
